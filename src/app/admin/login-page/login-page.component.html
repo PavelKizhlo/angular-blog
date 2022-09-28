@@ -43,5 +43,5 @@
     </div>
   </div>
 
-  <button [disabled]="form.invalid" class="btn btn-primary" type="submit">Войти</button>
+  <button [disabled]="form.invalid || submitting" class="btn btn-primary" type="submit">Войти</button>
 </form>
