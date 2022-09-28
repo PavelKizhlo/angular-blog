@@ -2,6 +2,13 @@
   <h2>Войти в панель администратора</h2>
 
   <div
+      *ngIf="message"
+      class="alert alert-info"
+  >
+    {{message}}
+  </div>
+
+  <div
       *ngIf="auth.error$ | async as error"
       class="alert alert-danger"
   >
