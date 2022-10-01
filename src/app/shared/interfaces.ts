@@ -14,6 +14,10 @@ export interface FbAuthResponse {
   registered: boolean;
 }
 
+export interface FbCreateResponse {
+  name: string;
+}
+
 export interface Post {
   id?: string;
   title: string;
