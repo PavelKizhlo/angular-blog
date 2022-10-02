@@ -22,7 +22,7 @@
     </div>
 
     <button
-        [disabled]="form.invalid"
+        [disabled]="form.invalid || submitted"
         class="btn btn-primary"
         type="submit"
     >Обновить
