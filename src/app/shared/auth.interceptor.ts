@@ -26,20 +26,19 @@ export class AuthInterceptor implements HttpInterceptor {
           auth: this.auth.token,
         },
       });
-      return next.handle(req).pipe(
-        catchError((error: HttpErrorResponse) => {
-          if (error.status === 401) {
-            this.auth.logout();
-            this.router.navigate(['/admin', 'login'], {
-              queryParams: {
-                authFailed: true,
-              },
-            });
-          }
-          return throwError(error);
-        })
-      );
     }
-    return undefined;
+    return next.handle(req).pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 401) {
+          this.auth.logout();
+          this.router.navigate(['/admin', 'login'], {
+            queryParams: {
+              authFailed: true,
+            },
+          });
+        }
+        return throwError(error);
+      })
+    );
   }
 }
